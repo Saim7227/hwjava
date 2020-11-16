@@ -1,0 +1,40 @@
+
+package sortinghw;
+import java.util.Scanner;
+
+public class Sortinghw {
+
+
+    public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    int i, j, k;
+    int amount = 10;
+//        System.out.println("how many numbers would you like to sort:");
+//        int amount = input.nextInt();
+    int numbers[] = new int[amount];
+    System.out.println(" Please enter " + amount + " integers: ");
+ 
+    for (i = 0; i < amount; i++) 
+      numbers[i] = input.nextInt();
+ 
+    for (i = 0; i < ( amount - 1 ); i++) {
+      for (j = 0; j < amount - i - 1; j++) {
+        if (numbers[j] > numbers[j+1]) 
+        {
+           k = numbers[j];
+           numbers[j] = numbers[j+1];
+           numbers[j+1] = k;
+        }
+      }
+    }
+        System.out.println("Sorted numbers:");
+    for (i = 0; i < amount; i++) 
+      System.out.print(" " + numbers[i]);
+    int g = numbers[0] + numbers[1] + numbers[2] + numbers[3] + numbers[4] + numbers[5] + numbers[6] + numbers[7] + numbers[8] + numbers[9];
+    int average = g/amount;
+        System.out.println("The average of all the numbers is: " + average);
+        System.out.println("the highest value was: " + numbers[9]);
+        System.out.println("the lowest value was: " + numbers[0]);
+    }
+
+}
