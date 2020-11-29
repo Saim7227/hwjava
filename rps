@@ -1,0 +1,60 @@
+
+package rpshw;
+
+import java.util.*;
+
+public class Rpshw {
+
+    public static final String ROCK = "ROCK";
+    public static final String PAPER = "PAPER";
+    public static final String SCISSORS = "SCISSORS";
+    
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Random random = new Random();
+      
+      System.out.println("Enter any one of the following inputs:  ");
+      System.out.println("ROCK");
+      System.out.println("PAPER");
+      System.out.println("SCISSORS");
+      System.out.println();
+          
+      String playerMove = getPlayerMove();
+      String computerMove = getComputerMove(); 
+
+      if (playerMove.equals(computerMove))
+            System.out.println("Game is Tie !!");       
+      else if (playerMove.equals(Rpshw.ROCK))
+        System.out.println(computerMove.equals(Rpshw.PAPER) ? "Computer Wins": "Player wins");   
+      else if (playerMove.equals(Rpshw.PAPER))
+        System.out.println(computerMove.equals(Rpshw.SCISSORS) ? "Computer Wins": "Player wins");      
+      else
+        System.out.println(computerMove.equals(Rpshw.ROCK) ? "Computer Wins": "Player wins");   
+    }
+      
+    public static String getComputerMove()
+    {
+        String computermove;
+        Random random = new Random();
+        int input = random.nextInt(3)+1;
+        if (input == 1)
+            computermove = Rpshw.ROCK;
+        else if(input == 2)
+            computermove = Rpshw.PAPER;
+        else
+            computermove = Rpshw.SCISSORS;
+            
+        System.out.println("Computer move is: " + computermove);
+        System.out.println();
+        return computermove;    
+    }
+    
+    public static String getPlayerMove()
+    {
+        Scanner in = new Scanner(System.in);
+        String input = in.next();
+        String playermove = input.toUpperCase();
+        System.out.println("Player move is: "+ playermove);
+        return playermove;
+    }    
+}
